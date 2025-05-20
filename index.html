@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AromaFresh - Pengharum Ruangan Alami</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom right, #f0fdf4, #d1fae5);
+      color: #2f3e46;
+    }
+    header {
+      background: url('https://images.unsplash.com/photo-1589987607627-5b4f066d94cd?auto=format&fit=crop&w=1500&q=80') no-repeat center center/cover;
+      color: white;
+      text-align: center;
+      padding: 100px 20px;
+    }
+    header h1 {
+      font-size: 48px;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+    }
+    header p {
+      font-size: 20px;
+      text-shadow: 1px 1px 5px rgba(0,0,0,0.3);
+    }
+    nav {
+      background: #10b981;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 15px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #f0fdf4;
+    }
+    section {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    h2 {
+      color: #047857;
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+    .catalog {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+    .product {
+      background: white;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .product:hover {
+      transform: scale(1.05);
+    }
+    .product img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+    form {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    }
+    form input, form textarea, form select {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      font-size: 16px;
+    }
+    form button {
+      background-color: #10b981;
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    form button:hover {
+      background-color: #059669;
+    }
+    footer {
+      background-color: #065f46;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 50px;
+    }
+    ul li a {
+      color: #047857;
+      text-decoration: none;
+    }
+    ul li a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Pengharum Ruangan Aroma Fresh</h1>
+    <p>Segarkan ruanganmu dengan aroma alami yang menenangkan</p>
+  </header>
+
+  <nav>
+    <a href="#tentang">Tentang</a>
+    <a href="#katalog">Katalog</a>
+    <a href="#payment">Pembayaran</a>
+    <a href="#kontak">Kontak</a>
+  </nav>
+
+  <section id="tentang">
+    <h2>Tentang Produk</h2>
+    <p>AromaFresh adalah pengharum ruangan berbahan dasar alami yang aman untuk anak-anak dan hewan peliharaan. Tersedia dalam berbagai varian aroma seperti Lavender, Citrus, dan Vanilla untuk menciptakan suasana yang nyaman dan rileks di rumah atau kantor Anda.</p>
+  </section>
+
+  <section id="katalog">
+    <h2>Katalog Produk</h2>
+    <div class="catalog">
+      <div class="product">
+        <img src="https://via.placeholder.com/300x200?text=Lavender" alt="Lavender">
+        <h3>Lavender</h3>
+        <p>Menenangkan dan membantu tidur lebih nyenyak</p>
+        <p><strong>Rp 25.000</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="payment">
+    <h2>Form Pembayaran</h2>
+    <form onsubmit="alert('Pesanan Anda telah diterima!'); return false;">
+      <label>Nama Lengkap</label>
+      <input type="text" required />
+
+      <label>Alamat Pengiriman</label>
+      <textarea required></textarea>
+
+      <label>Pilih Produk</label>
+      <select required>
+        <option value="">-- Pilih --</option>
+        <option value="lavender">Lavender</option>
+        <option value="citrus">Citrus</option>
+        <option value="vanilla">Vanilla</option>
+      </select>
+
+      <label>Jumlah</label>
+      <input type="number" min="1" required />
+
+      <label>Metode Pembayaran</label>
+      <select required>
+        <option value="">-- Pilih --</option>
+        <option value="transfer">Transfer Bank</option>
+        <option value="cod">COD (Bayar di Tempat)</option>
+        <option value="e-wallet">E-Wallet</option>
+      </select>
+
+      <button type="submit">Kirim Pesanan</button>
+    </form>
+  </section>
+
+  <section id="kontak">
+    <h2>Kontak Kami</h2>
+    <p>Jika Anda memiliki pertanyaan atau ingin memesan langsung, silakan hubungi kami:</p>
+    <ul>
+      <li>📞 WhatsApp: <a href="https://wa.me/6281234567890" target="_blank">+62 812-3456-7890</a></li>
+      <li>📧 Email: <a href="mailto:aromafresh@email.com">aromafresh@email.com</a></li>
+      <li>📍 Alamat: Jl. Melati No. 10, Surabaya</li>
+    </ul>
+  </section>
+
+  <footer>
+    &copy; 2025 AromaFresh. All rights reserved.
+  </footer>
+
+</body>
+</html>
