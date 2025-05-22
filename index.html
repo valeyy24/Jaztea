@@ -2,16 +2,24 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>JAZTÉA - Pewangi Gantung</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet"/>
   <style>
+    /* Reset & base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
     body {
       font-family: 'Poppins', sans-serif;
       background: linear-gradient(to bottom right, #fff0f5, #ffe4ec);
       color: #4a154b;
       margin: 0;
       padding: 0;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     header {
@@ -27,6 +35,13 @@
       text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
     }
 
+    header p {
+      font-weight: 500;
+      font-size: 18px;
+      text-shadow: 1px 1px 6px rgba(0,0,0,0.25);
+      margin-top: 0;
+    }
+
     nav {
       background: #ffb6c1;
       display: flex;
@@ -36,6 +51,7 @@
       position: sticky;
       top: 0;
       z-index: 1000;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
 
     nav a {
@@ -43,10 +59,16 @@
       text-decoration: none;
       font-weight: 500;
       font-size: 14px;
+      transition: color 0.3s ease;
+      padding: 8px 12px;
+      border-radius: 6px;
     }
 
-    nav a:hover {
+    nav a:hover,
+    nav a:focus {
       color: #ffd1dc;
+      background-color: rgba(255,255,255,0.2);
+      outline: none;
     }
 
     section {
@@ -63,6 +85,8 @@
 
     p, li {
       font-size: 15px;
+      margin-top: 0;
+      margin-bottom: 12px;
     }
 
     .card-container {
@@ -76,6 +100,11 @@
       border-radius: 12px;
       padding: 20px;
       box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
     }
 
     .card h3 {
@@ -103,6 +132,9 @@
       height: auto;
       border-radius: 12px;
       box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      max-width: 300px;
     }
 
     .catalog img:hover {
@@ -114,6 +146,15 @@
       padding: 25px;
       border-radius: 12px;
       box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+      max-width: 500px;
+      margin: auto;
+    }
+
+    form label {
+      font-weight: 500;
+      display: block;
+      margin-bottom: 6px;
+      margin-top: 12px;
     }
 
     form input, form textarea, form select {
@@ -121,23 +162,29 @@
       padding: 10px;
       border: 1px solid #ccc;
       border-radius: 8px;
-      margin-top: 8px;
       margin-bottom: 16px;
       font-size: 14px;
+      font-family: inherit;
+      resize: vertical;
     }
 
     form button {
       background-color: #ff69b4;
       color: white;
       border: none;
-      padding: 10px 25px;
+      padding: 12px 25px;
       border-radius: 8px;
-      font-size: 14px;
+      font-size: 16px;
+      font-weight: 600;
       cursor: pointer;
+      width: 100%;
+      transition: background-color 0.3s ease;
     }
 
-    form button:hover {
+    form button:hover,
+    form button:focus {
       background-color: #ff8fa3;
+      outline: none;
     }
 
     footer {
@@ -146,6 +193,73 @@
       text-align: center;
       padding: 15px;
       font-size: 14px;
+      margin-top: 40px;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 28px;
+      }
+
+      header p {
+        font-size: 16px;
+      }
+
+      nav {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 10px;
+      }
+
+      nav a {
+        font-size: 16px;
+      }
+
+      section {
+        padding: 15px 10px;
+      }
+
+      h2 {
+        font-size: 22px;
+      }
+
+      .card-container {
+        grid-template-columns: 1fr;
+      }
+
+      .catalog {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      form {
+        padding: 20px 15px;
+        max-width: 100%;
+      }
+
+      form input, form textarea, form select {
+        font-size: 16px;
+      }
+
+      form button {
+        font-size: 18px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      header h1 {
+        font-size: 48px;
+      }
+
+      nav a {
+        font-size: 14px;
+      }
+
+      section {
+        padding: 50px 40px;
+      }
     }
   </style>
 </head>
@@ -153,7 +267,7 @@
 
   <header>
     <h1>JAZTÉA</h1>
-    <p>Pewangi Gantung dengan Aroma Jasmine & White Tea</p>
+    <p>Pewangi Gantung dengan Aroma Jasmine &amp; White Tea</p>
   </header>
 
   <nav>
@@ -182,7 +296,7 @@
       </div>
       <div class="card">
         <h3>Suasana Elegan</h3>
-        <p>Aroma mewah floral & teh putih menciptakan kenyamanan.</p>
+        <p>Aroma mewah floral &amp; teh putih menciptakan kenyamanan.</p>
       </div>
       <div class="card">
         <h3>Dekoratif</h3>
@@ -204,15 +318,15 @@
       </div>
       <div class="card">
         <h3>Gantungkan</h3>
-        <p>Tempatkan di area mobil, kamar tidur, lemari, dsb.</p>
+        <p>Pasang pengharum di tempat yang diinginkan, seperti mobil, lemari, atau kamar tidur.</p>
       </div>
       <div class="card">
-        <h3>Jauhkan dari Anak</h3>
-        <p>Produk tidak untuk dikonsumsi, simpan dengan aman.</p>
+        <h3>Rasakan Aroma</h3>
+        <p>Biarkan aroma menyebar dan memberikan kesegaran.</p>
       </div>
       <div class="card">
-        <h3>Ganti Berkala</h3>
-        <p>Ganti jika aroma mulai memudar (sekitar 2–4 minggu).</p>
+        <h3>Ganti Bila Perlu</h3>
+        <p>Ganti botol bila aroma sudah berkurang setelah 2-4 minggu.</p>
       </div>
     </div>
   </section>
@@ -220,60 +334,39 @@
   <section id="katalog">
     <h2>Katalog Produk</h2>
     <div class="catalog">
-      <img src="jaztea-1.jpg" alt="Produk JAZTÉA" />
-      <img src="jaztea-2.jpg" alt="Produk JAZTÉA" />
+      <img src="https://images.unsplash.com/photo-1556909190-6c2c0a237963?auto=format&fit=crop&w=400&q=60" alt="JAZTÉA Model 1" />
+      <img src="https://images.unsplash.com/photo-1542838687-d117b7bfc7b8?auto=format&fit=crop&w=400&q=60" alt="JAZTÉA Model 2" />
+      <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=400&q=60" alt="JAZTÉA Model 3" />
     </div>
-  </section>  
+  </section>
 
   <section id="pembayaran">
-    <h2>Form Pemesanan</h2>
-    <form id="waForm">
-      <label>Nama Pembeli</label>
-      <input type="text" id="nama" required />
+    <h2>Pesan Sekarang</h2>
+    <form>
+      <label for="nama">Nama Lengkap</label>
+      <input type="text" id="nama" name="nama" required placeholder="Masukkan nama lengkap" />
 
-      <label>Alamat Pengiriman</label>
-      <textarea id="alamat" required></textarea>
+      <label for="alamat">Alamat Pengiriman</label>
+      <textarea id="alamat" name="alamat" rows="3" placeholder="Masukkan alamat lengkap" required></textarea>
 
-      <label>Jumlah Pembelian</label>
-      <input type="number" id="jumlah" min="1" required />
-
-      <label>Metode Pembayaran</label>
-      <select id="metode" required>
-        <option value="">-- Pilih --</option>
-        <option value="Transfer Bank">Transfer Bank</option>
-        <option value="COD">COD</option>
-        <option value="E-Wallet">E-Wallet</option>
+      <label for="produk">Pilih Produk</label>
+      <select id="produk" name="produk" required>
+        <option value="">-- Pilih Model --</option>
+        <option value="model1">JAZTÉA Model 1</option>
+        <option value="model2">JAZTÉA Model 2</option>
+        <option value="model3">JAZTÉA Model 3</option>
       </select>
 
-      <button type="submit">Pesan via WhatsApp</button>
+      <label for="jumlah">Jumlah Pesanan</label>
+      <input type="number" id="jumlah" name="jumlah" min="1" max="100" value="1" required />
+
+      <button type="submit">Kirim Pesanan</button>
     </form>
   </section>
 
   <footer>
-    &copy; 2025 Riliel - Oleh Riska, Lian, dan Israela.
+    &copy; 2025 JAZTÉA. All rights reserved.
   </footer>
-
-  <script>
-    const waNumber = '6282199612808'; // Ganti dengan nomor admin
-
-    document.getElementById('waForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-
-      const nama = document.getElementById('nama').value;
-      const alamat = document.getElementById('alamat').value;
-      const jumlah = document.getElementById('jumlah').value;
-      const metode = document.getElementById('metode').value;
-
-      const pesan = `Halo! Saya ingin memesan JAZTÉA.\n\n` +
-                    `Nama: ${nama}\n` +
-                    `Alamat: ${alamat}\n` +
-                    `Jumlah: ${jumlah}\n` +
-                    `Metode Pembayaran: ${metode}`;
-
-      const url = `https://wa.me/${waNumber}?text=${encodeURIComponent(pesan)}`;
-      window.open(url, '_blank');
-    });
-  </script>
 
 </body>
 </html>
