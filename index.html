@@ -90,23 +90,76 @@
     }
 
     .catalog {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-      align-items: center;
-      margin-top: 10px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      padding: 16px;
+      justify-items: center;
     }
 
     .catalog img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 12px;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
     }
 
     .catalog img:hover {
       transform: scale(1.05);
+    }
+
+    /* Product Cards Styling */
+    .product-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      margin-top: 20px;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+
+    .product-card img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 15px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+
+    .product-card h3 {
+      font-size: 22px;
+      color: #e75480;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+
+    .product-card .subtitle {
+      font-size: 16px;
+      color: #ff69b4;
+      font-weight: 500;
+      margin-bottom: 15px;
+    }
+
+    .product-card .description {
+      font-size: 14px;
+      color: #666;
+      line-height: 1.6;
+      text-align: left;
     }
 
     form {
@@ -175,10 +228,10 @@
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-.ig-button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
-}
+    .ig-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+    }
 
   </style>
 </head>
@@ -191,6 +244,7 @@
 
   <nav>
     <a href="#deskripsi">Deskripsi</a>
+    <a href="#produk">Produk</a>
     <a href="#manfaat">Manfaat</a>
     <a href="#penggunaan">Penggunaan</a>
     <a href="#katalog">Katalog</a>
@@ -201,6 +255,38 @@
   <section id="deskripsi">
     <h2>Deskripsi Produk</h2>
     <p><strong>JAZTÉA</strong> adalah pengharum ruangan gantung premium dengan aroma bunga melati (jasmine) dan teh putih (white tea). Produk ini dirancang oleh <strong>Riliel</strong> (Riska, Lian, Israela) untuk memberikan ketenangan dan kesegaran yang elegan.</p>
+  </section>
+
+  <section id="produk">
+    <h2>Varian Produk Kami</h2>
+    <div class="product-container">
+      <div class="product-card">
+        <img src="jaztea-4.jpeg" alt="Vanoura - Vanilla Air Freshener" />
+        <h3>Vanoura</h3>
+        <div class="subtitle">Aroma Vanilla yang Hangat & Menenangkan</div>
+        <div class="description">
+          Vanoura membawa kehangatan aroma vanilla klasik yang lembut, manis, dan menenangkan. Cocok untuk menciptakan suasana rumah yang nyaman dan cozy, seperti pelukan hangat di sore hari. Hadirkan ketenangan dan keintiman di ruang tidur, ruang tamu, atau ruang baca favoritmu.
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="jaztea-3.jpeg" alt="Serenitea - White Tea Air Freshener" />
+        <h3>Serenitea</h3>
+        <div class="subtitle">Kesegaran Lembut White Tea</div>
+        <div class="description">
+          Serenitea memancarkan aroma white tea yang bersih, ringan, dan elegan. Wewangian ini memberikan efek menenangkan dan menyegarkan, seperti semilir angin pagi yang menyapa perlahan. Pilihan tepat untuk menciptakan suasana rileks di ruang kerja, ruang keluarga, atau kamar mandi.
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="jaztea-5.jpeg" alt="Mochare - Coffee Air Freshener" />
+        <h3>Mochare</h3>
+        <div class="subtitle">Aroma Kopi yang Hangat & Memikat</div>
+        <div class="description">
+          Mochare adalah pilihan sempurna untuk pecinta kopi. Wewangian ini menghadirkan aroma kopi panggang yang kaya dan menggoda, menciptakan nuansa hangat dan membangkitkan semangat. Ideal untuk ruang tamu, dapur, atau sudut ngopi favoritmu di rumah.
+        </div>
+      </div>
+    </div>
   </section>
 
   <section id="manfaat">
@@ -256,6 +342,9 @@
     <div class="catalog">
       <img src="jaztea-1.jpg" alt="Produk JAZTÉA" />
       <img src="jaztea-2.jpg" alt="Produk JAZTÉA" />
+      <img src="jaztea-3.jpeg" alt="Produk JAZTÉA" />
+      <img src="jaztea-4.jpeg" alt="Produk JAZTÉA" />
+      <img src="jaztea-5.jpeg" alt="Produk JAZTÉA" />
     </div>
   </section>  
 
@@ -267,6 +356,14 @@
 
       <label>Alamat Pengiriman</label>
       <textarea id="alamat" required></textarea>
+
+      <label>Pilih Varian Produk</label>
+      <select id="varian" required>
+        <option value="">-- Pilih Varian --</option>
+        <option value="Vanoura - Vanilla">Vanoura - Aroma Vanilla</option>
+        <option value="Serenitea - White Tea">Serenitea - Aroma White Tea</option>
+        <option value="Mochare - Coffee">Mochare - Aroma Kopi</option>
+      </select>
 
       <label>Jumlah Pembelian</label>
       <input type="number" id="jumlah" min="1" required />
@@ -300,12 +397,14 @@
 
       const nama = document.getElementById('nama').value;
       const alamat = document.getElementById('alamat').value;
+      const varian = document.getElementById('varian').value;
       const jumlah = document.getElementById('jumlah').value;
       const metode = document.getElementById('metode').value;
 
       const pesan = `Halo! Saya ingin memesan JAZTÉA.\n\n` +
                     `Nama: ${nama}\n` +
                     `Alamat: ${alamat}\n` +
+                    `Varian: ${varian}\n` +
                     `Jumlah: ${jumlah}\n` +
                     `Metode Pembayaran: ${metode}`;
 
